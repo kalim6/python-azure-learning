@@ -7,14 +7,23 @@ Learned:
 - git add
 - git commit
 - git push
-- branches
-- remote repositories
+- feature branches
+- git status
+- git diff
 
-## Questions
+## Python
 
-- How does Git actually store commits?
-- What is HEAD?
+Learned:
+- virtual environments (.venv)
+- importing modules
+- variables
+- f-strings
+- if statements
+- datetime
+- strftime()
 
-## Next
+Examples:
 
-- Build first Azure Function
+```python
+current_time = dt.datetime.now().strftime("%H:%M")
+
