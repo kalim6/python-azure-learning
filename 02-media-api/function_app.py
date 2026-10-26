@@ -78,11 +78,14 @@ def media_endpoint(req: func.HttpRequest) -> func.HttpResponse:
     # Power Automate equivalent:
     # Condition -> Is ID empty?
     # --------------------------------------------------------------
+
     if not media_id:
         return func.HttpResponse(
-            "Media ID is required.",
-            status_code=400
-        )
+        json.dumps(media),
+        mimetype="application/json",
+        status_code=200
+    )
+        
 
     # --------------------------------------------------------------
     # STEP 3: Lookup media item
@@ -122,9 +125,9 @@ def media_endpoint(req: func.HttpRequest) -> func.HttpResponse:
 # Get id from query string
 #     ↓
 # Is id empty?
-#  ├─ Yes → Return 400
-#  └─ No
-#       ↓
+# ├─ Yes → Return all media
+# └─ No → Continue lookup#       
+#     ↓
 # Look up item in media dictionary
 #       ↓
 # Was item found?
